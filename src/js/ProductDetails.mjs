@@ -56,6 +56,8 @@ async init() {
       productDetailsTemplate(this.product)
     );
   }
+
+  
   // async getData() {
   //   const res = await fetch(this.path);
   //   const data = await convertToJson(res);
