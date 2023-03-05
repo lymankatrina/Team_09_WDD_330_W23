@@ -37,7 +37,7 @@ for (let i=0; i < carts.length; i++ ) {
 function onLoadCartNumbers(){
   let productNumbers = localStorage.getItem("cartNumbers");
   if (productNumbers){
-    document.querySelector(".cart span").textContent = productNumbers;
+    document.querySelector(".product-card").textContent = productNumbers;
   }
 }
 function cartNumbers() {
@@ -46,11 +46,32 @@ function cartNumbers() {
   productNumbers = parseInt(productNumbers);
     if (productNumbers) {
       localStorage.setItem("cartNumbers", productNumbers + 1);
-      document.querySelector(".cart span").textContent = productNumbers + 1;
+      document.querySelector(".product-card").textContent = productNumbers + 1;
   } else {
       localStorage.setItem("cartNumbers", 1);
-      document.querySelector(".cart span").textContent = 1;
+      document.querySelector(".product-card").textContent = 1;
+  }
+  setItems(product);
+}
+  function setItems(product) {
+    let cartItems = localStorage.getItem("productsInCart");
+    cartItems = JSON.parse(cartItems);
+
+    if (cartItems != null) {
+      cartItems[product.Name].inCart += 1;
+    } else {
+        product.inCart = 1;
+        cartItems = {
+          [product.Name]: product
+      }
+    }
+
+    product.inCart = 1;
+    cartItems = {
+      [product.Name]: product
+    }
+    
+  localStorage.setItem("productsInCart", JSON.stringify (cartItems));
   }
 
-}
 onLoadCartNumbers();
