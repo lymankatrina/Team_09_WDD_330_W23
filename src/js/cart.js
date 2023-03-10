@@ -1,3 +1,5 @@
+loadHeaderFooter();
+
 import { getLocalStorage } from "./utils.mjs";
 let cartTotal;
 function renderCartContents() {
