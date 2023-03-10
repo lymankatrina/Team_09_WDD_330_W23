@@ -1,13 +1,16 @@
 import { getLocalStorage } from "./utils.mjs";
-
+let cartTotal;
 function renderCartContents() {
+  cartTotal = 0;
   const cartItems = getLocalStorage("so-cart");
   // const itemsArr = cartItems.toString().split(",");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".cartTotal").innerHTML = `Total: $${cartTotal}`;
 }
 
 function cartItemTemplate(item) {
+  cartTotal += item.FinalPrice;
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
