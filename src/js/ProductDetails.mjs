@@ -19,12 +19,11 @@ function productDetailsTemplate(product) {
 }
 
 export default class ProductDetails {
-  constructor(productid, dataSource) {
-    this.productid = productid;
+  constructor(productId, dataSource) {
+    this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
   }
-
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
@@ -54,7 +53,6 @@ export default class ProductDetails {
     );
   }
 }
-
 // getData() {
 //   return fetch(this.path)
 //     .then(convertToJson)
