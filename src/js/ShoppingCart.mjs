@@ -1,5 +1,4 @@
 import { getLocalStorage } from "./utils.mjs";
-let cartTotal;
 
 function cartItemTemplate(item) {
   cartTotal += item.FinalPrice;

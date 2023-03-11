@@ -55,13 +55,12 @@ export default class ProductDetails {
   }
 }
 
-//   getData() {
-//     return fetch(this.path)
-//       .then(convertToJson)
-//       .then((data) => data);
-//   }
-//   async findProductById(id) {
-//     const products = await this.getData();
-//     return products.find((item) => item.Id === id);
-//   }
+// getData() {
+//   return fetch(this.path)
+//     .then(convertToJson)
+//     .then((data) => data);
+// }
+// async findProductById(id) {
+//   const products = await this.getData();
+//   return products.find((item) => item.Id === id);
 // }
