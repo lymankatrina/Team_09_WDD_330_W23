@@ -1,5 +1,5 @@
 import { getLocalStorage } from "./utils.mjs";
-
+let cartTotal;
 function cartItemTemplate(item) {
   cartTotal += item.FinalPrice;
   const newItem = `<li class="cart-card divider">
