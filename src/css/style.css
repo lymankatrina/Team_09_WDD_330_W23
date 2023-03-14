@@ -60,7 +60,6 @@ header {
   font-size: var(--small-font);
   width: 110px;
   height: 80px;
-
   flex-direction: column;
   align-items: flex-end;
   box-shadow: 1px 1px 4px var(--light-grey);
@@ -94,7 +93,11 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+.title {
+  text-transform: capitalize;
+}
 /* End utility classes */
+
 
 /* Cart icon styles */
 .cart {
@@ -102,13 +105,13 @@ button {
   position: relative;
   text-align: center;
 }
-
 .cart svg {
   width: 25px;
 }
 .cart:hover svg {
   fill: gray;
 }
+
 /* superscript number added to backpack icon--by Teresa Moser*/
 .badge:after {
   content: attr(value);
@@ -122,8 +125,43 @@ button {
   top: -10px;
   opacity: 0.9;
 }
-
 /* End cart icon styles */
+
+
+
+/* Product Listing styles--Teresa Moser */
+.product-grid {
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  text-align: center;
+  color: var(--dark-grey);
+  padding-left: 0;
+}
+
+.product-grid > li {
+  width: 150px;
+  /* border: 1px solid var(--light-grey); */
+  padding: 0.5em;
+  margin: 1em;
+}
+.product-grid h2 {
+  margin: 0;
+  font-size: 1.2em;
+}
+.product-grid a {
+  text-decoration: none;
+}
+.product-grid a:link,
+.product-grid a:visited {
+  color: var(--dark-grey);
+}
+.product-grid a:hover {
+  text-decoration: underline;
+}
+/* End Product Listing styles--Teresa Moser */
+
 
 .mission {
   padding: 0 0.5em;
@@ -146,6 +184,7 @@ button {
   text-decoration: none;
   color: var(--dark-grey);
 }
+
 /* Styles for product lists */
 .product-card {
   flex: 1 1 45%;

@@ -1,11 +1,11 @@
-import { setLocalStorage } from "./utils.mjs";
+import { setLocalStorage, getLocalStorage } from "./utils.mjs";
 
 function productDetailsTemplate(product) {
   return `<section class="product-detail"> <h3>${product.Brand.Name}</h3>
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
@@ -18,21 +18,12 @@ function productDetailsTemplate(product) {
     </div></section>`;
 }
 
-function convertToJson(res) {
-  if (res.ok) {
-    return res.json();
-  } else {
-    throw new Error("Bad Response");
-  }
-}
-
 export default class ProductDetails {
-  constructor(productid, dataSource) {
-    this.productid = productid;
+  constructor(productId, dataSource) {
+    this.productId = productId;
     this.product = {};
     this.dataSource = dataSource;
   }
-
   async init() {
     // use our datasource to get the details for the current product. findProductById will return a promise! use await or .then() to process it
     this.product = await this.dataSource.findProductById(this.productId);
@@ -45,7 +36,14 @@ export default class ProductDetails {
       .addEventListener("click", this.addToCart.bind(this));
   }
   addToCart() {
-    setLocalStorage("so-cart", this.product);
+    let cartContents = getLocalStorage("so-cart");
+    //check to see if there was anything there
+    if (!cartContents) {
+      cartContents = [];
+    }
+    // then add the current product to the list
+    cartContents.push(this.product);
+    setLocalStorage("so-cart", cartContents);
   }
   renderProductDetails(selector) {
     const element = document.querySelector(selector);
@@ -55,14 +53,3 @@ export default class ProductDetails {
     );
   }
 }
-
-//   getData() {
-//     return fetch(this.path)
-//       .then(convertToJson)
-//       .then((data) => data);
-//   }
-//   async findProductById(id) {
-//     const products = await this.getData();
-//     return products.find((item) => item.Id === id);
-//   }
-// }
