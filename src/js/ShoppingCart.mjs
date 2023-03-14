@@ -1,7 +1,6 @@
 import { getLocalStorage } from "./utils.mjs";
-let cartTotal;
+
 function cartItemTemplate(item) {
-  cartTotal += item.FinalPrice;
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -26,7 +25,6 @@ export default class ShoppingCart {
     this.parentSelector = parentSelector;
   }
   renderCartContents() {
-    cartTotal = 0;
     const cartItems = getLocalStorage(this.key);
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");

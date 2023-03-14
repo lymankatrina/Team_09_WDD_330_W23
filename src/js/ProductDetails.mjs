@@ -5,7 +5,7 @@ function productDetailsTemplate(product) {
     <h2 class="divider">${product.NameWithoutBrand}</h2>
     <img
       class="divider"
-      src="${product.Image}"
+      src="${product.Images.PrimaryLarge}"
       alt="${product.NameWithoutBrand}"
     />
     <p class="product-card__price">$${product.FinalPrice}</p>
@@ -53,12 +53,3 @@ export default class ProductDetails {
     );
   }
 }
-// getData() {
-//   return fetch(this.path)
-//     .then(convertToJson)
-//     .then((data) => data);
-// }
-// async findProductById(id) {
-//   const products = await this.getData();
-//   return products.find((item) => item.Id === id);
-// }

@@ -14,7 +14,7 @@ export function setLocalStorage(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
 
-// get a parameter from the URL when we need to
+// helper to get parameter strings
 export function getParam(param) {
   const queryString = window.location.search;
   const urlParams = new URLSearchParams(queryString);
@@ -22,7 +22,7 @@ export function getParam(param) {
   return product;
 }
 
-// function to render a list of objects and template to insert into the DOM
+// function to take a list of objects and a template and insert the objects as HTML into the DOM
 export function renderListWithTemplate(
   templateFn,
   parentElement,
@@ -41,7 +41,7 @@ export function renderListWithTemplate(
 // function to take an optional object and a template and insert the objects as HTML into the DOM
 export function renderWithTemplate(template, parentElement, data, callback) {
   parentElement.insertAdjacentHTML("afterbegin", template);
-  // if there is a callback...call it and pass the data
+  //if there is a callback...call it and pass data
   if (callback) {
     callback(data);
   }
@@ -53,7 +53,7 @@ async function loadTemplate(path) {
   return template;
 }
 
-// function to load the header and footer partials into a page
+// function to dynamically load the header and footer into a page
 export async function loadHeaderFooter() {
   const headerTemplate = await loadTemplate("public/partials/header.html");
   const headerElement = document.querySelector("#main-header");
