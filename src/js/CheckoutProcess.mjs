@@ -42,13 +42,13 @@ export default class CheckoutProcess {
     this.calculateItemSummary();
   }
   calculateItemSummary() {
-    // get the total number of items
-    const itemNumElement = document.querySelector(
-      this.outputSelector + " #num-items"
-    );
     // get the cart subtotal
     const summaryElement = document.querySelector(
       this.outputSelector + " #cartTotal"
+    );
+    // get the total number of items
+    const itemNumElement = document.querySelector(
+      this.outputSelector + " #num-items"
     );
     itemNumElement.innerText = this.list.length;
     // calculate the total of all the items in the cart
