@@ -20,7 +20,7 @@
       <section class="products">
         <h2>Review & Place your Order</h2>
         <div class="customerInfo">
-          <form>
+          <form name="checkout">
             <fieldset>
               <h3>Customer Name</h3>
               <label for="fname">First Name:</label><br />
@@ -30,32 +30,73 @@
             </fieldset>
             <fieldset>
               <h3>Address</h3>
-              <label for="address">Street Address:</label>
+              <label for="street">Street Address:</label>
               <input
                 type="street"
-                id="address"
-                name="address"
+                id="street"
+                name="street"
                 placeholder="Street Address"
               /><br />
               <label for="city">City</label>
-              <input type="city" id="city" name="city" placeholder="City" /><br>
+              <input
+                type="city"
+                id="city"
+                name="city"
+                placeholder="City"
+              /><br />
               <label for="state">State</label>
-              <input type="state" id="state" name="state" placeholder="State" /><br>
+              <input
+                type="state"
+                id="state"
+                name="state"
+                placeholder="State"
+              /><br />
               <label for="zip">Zip</label>
               <input type="zip" id="zip" name="zip" placeholder="Zip" />
             </fieldset>
             <fieldset>
-              <h3>Payment</h3>
-              <label for="ccnum">Credit card number</label>
-              <input type="text" id="ccnum" name="cardnumber" placeholder="1111-2222-3333-4444"><br>
-              <label for="expmonth">Exp Month</label>
-              <input type="text" id="expmonth" name="expmonth" placeholder="September">
-              <label for="expyear">Exp Year</label>
-              <input type="text" id="expyear" name="expyear" placeholder="2018">
-              <label for="cvv">CVV</label>
-              <input type="text" id="cvv" name="cvv" placeholder="352">
-          </fieldset>
-          </div>
+              <h3>Payment Method</h3>
+              <label for="cardNumber">Credit card number</label>
+              <input
+                type="text"
+                id="cardNumber"
+                name="cardNumber"
+                value="1234123412341234"
+              /><br />
+              <label for="expiration">expiration</label>
+              <input
+                type="text"
+                id="expiration"
+                name="expiration"
+                placeholder="8/21"
+              />
+              <label for="code">CVV</label>
+              <input type="text" id="code" name="code" value="123" />
+            </fieldset>
+            <fieldset class="orderSummary">
+              <h3>Order Summary</h3>
+              <ul>
+                <li>
+                  <label for="cartTotal"
+                    >Subtotal(<span id="num-items"></span>)</label
+                  >
+                  <p name="cartTotal" id="cartTotal"></p>
+                </li>
+                <li>
+                  <label for="shipping">Shipping Estimate:</label>
+                  <p id="shipping"></p>
+                </li>
+                <li>
+                  <label for="tax">Tax:</label>
+                  <p id="tax"></p>
+                </li>
+                <li>
+                  <label for="orderTotal"><b>Order Total</b></label>
+                  <p id="orderTotal"></p>
+                </li>
+              </ul>
+            </fieldset>
+            <button id="checkoutSubmit" type="submit">Checkout</button>
           </form>
         </div>
       </section>
