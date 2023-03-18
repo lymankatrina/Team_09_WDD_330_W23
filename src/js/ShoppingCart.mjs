@@ -42,6 +42,6 @@ export default class ShoppingCart {
     const cartItems = getLocalStorage(this.key);
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
-    // document.getElementById("finalPrice").innerHTML = `Total: $${cartTotal}`;
+    document.getElementById("finalPrice").innerHTML = `Total: $${cartTotal}`;
   }
 }
