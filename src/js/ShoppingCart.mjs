@@ -1,7 +1,7 @@
 import { getLocalStorage } from "./utils.mjs";
-let cartTotal;
+// let cartTotal;
 function cartItemTemplate(item) {
-  cartTotal += item.FinalPrice;
+  // cartTotal += item.FinalPrice;
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
@@ -25,11 +25,23 @@ export default class ShoppingCart {
     this.key = key;
     this.parentSelector = parentSelector;
   }
+
+  async init() {
+    const list = getLocalStorage(this.key);
+    this.calculateListTotal(list);
+    this.renderCartContents(list);
+  }
+  calculateListTotal(list) {
+    const amounts = list.map((item) => item.FinalPrice);
+    this.total = amounts.reduce((sum, item) => sum + item);
+  }
+
+
   renderCartContents() {
-    cartTotal = 0;
+    // cartTotal = 0;
     const cartItems = getLocalStorage(this.key);
     const htmlItems = cartItems.map((item) => cartItemTemplate(item));
     document.querySelector(this.parentSelector).innerHTML = htmlItems.join("");
-    document.getElementById("finalPrice").innerHTML = `Total: $${cartTotal}`;
+    // document.getElementById("finalPrice").innerHTML = `Total: $${cartTotal}`;
   }
 }
