@@ -2,6 +2,7 @@ import { getLocalStorage } from "./utils.mjs";
 import ExternalServices from "./ExternalServices.mjs";
 
 const services = new ExternalServices();
+
 function formDataToJSON(formElement) {
   const formData = new FormData(formElement),
     convertedJSON = {};
@@ -84,11 +85,23 @@ export default class CheckoutProcess {
     json.shipping = this.shipping;
     json.items = packageItems(this.list);
     console.log(json);
+
+    // try {
+    //   const res = await services.checkout(json);
+    //   console.log(res);
+    // } catch (err) {
+    //   console.log(err);
+    // }
+
     try {
       const res = await services.checkout(json);
-      console.log(res);
+      if (res.status === "success") {
+        return true; // checkout successful
+      }
+      return false; // checkout failed
     } catch (err) {
       console.log(err);
+      return false; // checkout failed
     }
   }
 }
