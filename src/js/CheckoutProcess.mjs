@@ -86,22 +86,24 @@ export default class CheckoutProcess {
     json.items = packageItems(this.list);
     console.log(json);
 
-    // try {
-    //   const res = await services.checkout(json);
-    //   console.log(res);
-    // } catch (err) {
-    //   console.log(err);
-    // }
-
     try {
       const res = await services.checkout(json);
-      if (res.status === "success") {
-        return true; // checkout successful
-      }
-      return false; // checkout failed
+      console.log(res);
     } catch (err) {
       console.log(err);
-      return false; // checkout failed
     }
+
+
+    // Add a success message for the user
+    // try {
+    //   const res = await services.checkout(json);
+    //   if (res.status === "success") {
+    //     return true; // checkout successful
+    //   }
+    //   return false; // checkout failed
+    // } catch (err) {
+    //   console.log(err);
+    //   return false; // checkout failed
+    // }
   }
 }

@@ -14,12 +14,12 @@ document
 document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
   e.preventDefault();
 
-  // myCheckout.checkout();
+  myCheckout.checkout();
 
-  // clear out the cart contents in localStorage
-  if (myCheckout.checkout()) {
-    localStorage.removeItem("cart");
-    window.location.href = "success.html";
-  }
+  // // clear out the cart contents in localStorage
+  // if (myCheckout.checkout()) {
+  //   localStorage.removeItem("cart");
+  //   window.location.href = "success.html";
+  // }
 
 });
