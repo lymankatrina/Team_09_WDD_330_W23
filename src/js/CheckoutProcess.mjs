@@ -105,5 +105,18 @@ export default class CheckoutProcess {
     //   console.log(err);
     //   return false; // checkout failed
     // }
+
+    // Add the alertMessage function in the CheckoutProcess
+    // try {
+    //   const res = await services.checkout(json);
+    //   console.log(res);
+    //   alertMessage("Your order has been submitted successfully!");
+    // } catch (err) {
+    //   console.log(err);
+    //   alertMessage(
+    //     "There was an error processing your order. Please try again later."
+    //   );
+    // }
+
   }
 }

@@ -238,3 +238,38 @@ footer {
   font-size: var(--small-font);
   padding: 1em;
 }
+
+
+/* Styles for adding the alertMessage function */
+.alert-message {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #f44336;
+  height: 40px;
+  line-height: 40px;
+}
+
+.alert-message::before {
+  content: "!";
+  position: absolute;
+  left: 10px;
+  font-size: 1.5rem;
+}
+
+.alert-message button {
+  position: absolute;
+  right: 10px;
+  font-size: 1.2rem;
+  color: #fff;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* End alert function */
+
