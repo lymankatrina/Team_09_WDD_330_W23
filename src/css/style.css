@@ -94,6 +94,7 @@ button {
 .divider {
   border-bottom: 2px solid var(--primary-color);
 }
+
 /* End utility classes */
 
 /* Cart icon styles */
@@ -208,6 +209,8 @@ button {
   grid-template-rows: auto;
   justify-self: center;
   align-self: center;
+  margin:auto; /* added this to reduce the size of the image*/
+  gap: 4em; /* added this to reduce the size of the image*/
 }
 
 .product-categories img {
