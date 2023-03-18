@@ -24,9 +24,9 @@
             <fieldset>
               <h3>Customer Name</h3>
               <label for="fname">First Name:</label><br />
-              <input type="text" id="fname" name="fname" /><br />
+              <input type="text" id="fname" required name="fname" /><br />
               <label for="lname">Last Name:</label><br />
-              <input type="text" id="lname" name="lname" />
+              <input type="text" id="lname" required name="lname" />
             </fieldset>
             <fieldset>
               <h3>Address</h3>
@@ -34,6 +34,7 @@
               <input
                 type="street"
                 id="street"
+                required
                 name="street"
                 placeholder="Street Address"
               /><br />
@@ -41,6 +42,7 @@
               <input
                 type="city"
                 id="city"
+                required
                 name="city"
                 placeholder="City"
               /><br />
@@ -48,11 +50,18 @@
               <input
                 type="state"
                 id="state"
+                required
                 name="state"
                 placeholder="State"
               /><br />
               <label for="zip">Zip</label>
-              <input type="zip" id="zip" name="zip" placeholder="Zip" />
+              <input
+                type="zip"
+                id="zip"
+                name="zip"
+                required
+                placeholder="Zip"
+              />
             </fieldset>
             <fieldset>
               <h3>Payment Method</h3>
@@ -60,6 +69,7 @@
               <input
                 type="text"
                 id="cardNumber"
+                required
                 name="cardNumber"
                 value="1234123412341234"
               /><br />
@@ -68,10 +78,11 @@
                 type="text"
                 id="expiration"
                 name="expiration"
+                required
                 placeholder="8/21"
               />
               <label for="code">CVV</label>
-              <input type="text" id="code" name="code" value="123" />
+              <input type="text" id="code" required name="code" value="123" />
             </fieldset>
             <fieldset class="checkout-summary">
               <h3>Order Summary</h3>

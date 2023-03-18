@@ -73,19 +73,24 @@ export function setClick(selector, callback) {
   qs(selector).addEventListener("click", callback);
 }
 
-export function alertMessage(message, scroll = true, duration = 3000) {
+export function alertMessage(message, scroll = true) {
+  // create element to hold alert
   const alert = document.createElement("div");
+  // add a class to style the alert
   alert.classList.add("alert");
+  // set the contents
   alert.innerHTML = `<p>${message}</p><span>X</span>`;
-
+  // add alistener to the alert
+  // if they click the X remove the alert
   alert.addEventListener("click", function (e) {
     if (e.target.tagName == "SPAN") {
-      MediaDeviceInfo.removeChild(this);
+      main.removeChild(this);
     }
   });
-  const main = document.querySelector("man");
+  // add the alert to the top of the main
+  const main = document.querySelector("main");
   main.prepend(alert);
-  // make sure the alert shows by scrolling to top of window
+  // make sure the alert shows by scrolling to top
   // default to scroll=true, but allow it to be overridden
   if (scroll) window.scrollTo(0, 0);
 }
