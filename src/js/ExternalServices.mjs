@@ -20,7 +20,7 @@ export default class ExternalServices {
     const data = await convertToJson(response);
     return data.Result;
   }
-  async chekout(payload) {
+  async checkout(payload) {
     const options = {
       method: "POST",
       headers: {
