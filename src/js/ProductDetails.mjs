@@ -42,7 +42,13 @@ export default class ProductDetails {
       cartContents = [];
     }
     // then add the current product to the list
-    cartContents.push(this.product);
+    let dup = cartContents.filter((p) => p.id == this.product.id);
+    if (dup.length == 0) {
+      this.product.quantity = 1;
+      cartContents.push(this.product);
+    } else {
+      dup[0].quantity++;
+    }
     setLocalStorage("so-cart", cartContents);
     alertMessage(`${this.product.NameWithoutBrand} added to cart!`);
   }
