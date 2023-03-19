@@ -16,7 +16,46 @@
   <body>
     <header class="divider" id="main-header"></header>
 
-    <main class="divider"></main>
+    <main class="divider">
+
+     <!-- +++++++++++++This below adds the product comments functionality+++++++++++++++ -->
+      <div class="comments">
+        <h3>Product Comments:</h3>
+        <ul class="comment-list">
+          <li class="comment">
+            <div class="comment-header">
+              <span class="comment-author">John Doe</span>
+              <span class="comment-date">March 20, 2023</span>
+            </div>
+            <div class="comment-body">
+              <p>This product is amazing! I've been using it for months and it still looks and works great.</p>
+            </div>
+          </li>
+          <li class="comment">
+            <div class="comment-header">
+              <span class="comment-author">Jane Smith</span>
+              <span class="comment-date">March 22, 2023</span>
+            </div>
+            <div class="comment-body">
+              <p>I had a problem with my order, but customer service was very helpful and resolved the issue quickly.</p>
+            </div>
+          </li>
+        </ul>
+        <form class="comment-form">
+          <h3>Add a Comment:</h3>
+          <div>
+            <label for="comment-name">Name:</label>
+            <input type="text" id="comment-name" name="comment-name" required>
+          </div>
+          <div>
+            <label for="comment-text">Comment:</label>
+            <textarea id="comment-text" name="comment-text" required></textarea>
+          </div>
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <!-- End of Product comments functionality -->
+    </main>
 
     <footer id="main-footer"></footer>
   </body>
