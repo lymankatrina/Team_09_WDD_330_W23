@@ -102,17 +102,33 @@ button {
   position: relative;
   text-align: center;
 }
-
 .cart svg {
   width: 25px;
 }
 .cart:hover svg {
   fill: rgb(3, 126, 11);
 }
+/* Animation for backpack icon */
+.cart svg {
+  animation: shake-animation 4.72s ease infinite;
+  transform-origin: 50% 50%;
+}
+
+@keyframes shake-animation {
+   0% { transform:translate(0,0) }
+  1.78571% { transform:translate(5px,0) }
+  3.57143% { transform:translate(0,0) }
+  5.35714% { transform:translate(5px,0) }
+  7.14286% { transform:translate(0,0) }
+  8.92857% { transform:translate(5px,0) }
+  10.71429% { transform:translate(0,0) }
+  100% { transform:translate(0,0) }
+}
+
 /* Superscript count for items in cart--Teresa Moser */
 .badge:after{
   content:attr(value);
-  font-size:12px;
+  font-size:19px;
   color: #fff;
   background: red;
   border-radius:50%;
